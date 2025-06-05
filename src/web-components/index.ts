@@ -3,3 +3,4 @@ import './CounterWC';
 import './ButtonWC';
 import './AlertWC';
 import './InputWC';
+import './PagePreviewWC';

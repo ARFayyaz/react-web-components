@@ -16,13 +16,19 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      <h1>PagePreview Component Test</h1>
-      <PagePreview
-        workflowName={testWorkflowName}
-        token={testToken}
-        handleShowNotification={handleShowNotification}
-      />
+    <div className='min-h-screen bg-gray-100 p-8'>
+      <div className='max-w-4xl mx-auto'>
+        <h1 className='text-3xl font-bold text-blue-600 mb-8'>
+          PagePreview Component Test
+        </h1>
+        <div className='bg-white rounded-lg shadow-lg p-6'>
+          <PagePreview
+            workflowName={testWorkflowName}
+            token={testToken}
+            handleShowNotification={handleShowNotification}
+          />
+        </div>
+      </div>
     </div>
   );
 }
