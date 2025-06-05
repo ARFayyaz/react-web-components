@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Web Components Demo</title>
+    <script src="/react-web-components.umd.cjs"></script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        background-color: #f5f5f5;
+      }
+      .demo-section {
+        background: white;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .demo-section h2 {
+        margin-top: 0;
+        color: #333;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 0.5rem;
+      }
+      .component-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .component-variant {
+        padding: 1rem;
+        border: 1px solid #eee;
+        border-radius: 4px;
+      }
+      .component-variant h3 {
+        margin-top: 0;
+        font-size: 1rem;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>React Web Components Demo</h1>
+
+    <!-- Button Component Demo -->
+    <div class="demo-section">
+      <h2>Button Component</h2>
+      <div class="component-grid">
+        <div class="component-variant">
+          <h3>Default Button</h3>
+          <react-button>Click me</react-button>
+        </div>
+        <div class="component-variant">
+          <h3>Primary Button</h3>
+          <react-button variant="primary">Primary Button</react-button>
+        </div>
+        <div class="component-variant">
+          <h3>Secondary Button</h3>
+          <react-button variant="secondary">Secondary Button</react-button>
+        </div>
+        <div class="component-variant">
+          <h3>Disabled Button</h3>
+          <react-button disabled>Disabled Button</react-button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alert Component Demo -->
+    <div class="demo-section">
+      <h2>Alert Component</h2>
+      <div class="component-grid">
+        <div class="component-variant">
+          <h3>Info Alert</h3>
+          <react-alert type="info" style="color: red">
+            This is an info message
+          </react-alert>
+        </div>
+        <div class="component-variant">
+          <h3>Success Alert</h3>
+          <react-alert type="success"
+            >Operation completed successfully!</react-alert
+          >
+        </div>
+        <div class="component-variant">
+          <h3>Warning Alert</h3>
+          <react-alert type="warning">Please be careful!</react-alert>
+        </div>
+        <div class="component-variant">
+          <h3>Error Alert</h3>
+          <react-alert type="error">Something went wrong!</react-alert>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Component Demo -->
+    <div class="demo-section">
+      <h2>Input Component</h2>
+      <div class="component-grid">
+        <div class="component-variant">
+          <h3>Default Input</h3>
+          <react-input placeholder="Enter text here"></react-input>
+        </div>
+        <div class="component-variant">
+          <h3>Disabled Input</h3>
+          <react-input disabled placeholder="Disabled input"></react-input>
+        </div>
+        <div class="component-variant">
+          <h3>Input with Label</h3>
+          <react-input
+            label="Username"
+            placeholder="Enter username"
+          ></react-input>
+        </div>
+        <div class="component-variant">
+          <h3>Input with Error</h3>
+          <react-input
+            error="This field is required"
+            placeholder="Required field"
+          ></react-input>
+        </div>
+      </div>
+    </div>
+
+    <!-- Counter Component Demo -->
+    <div class="demo-section">
+      <h2>Counter Component</h2>
+      <div class="component-grid">
+        <div class="component-variant">
+          <h3>Default Counter</h3>
+          <react-counter></react-counter>
+        </div>
+        <div class="component-variant">
+          <h3>Counter with Initial Value</h3>
+          <react-counter initial-value="5"></react-counter>
+        </div>
+        <div class="component-variant">
+          <h3>Counter with Min/Max</h3>
+          <react-counter min="0" max="10" initial-value="5"></react-counter>
+        </div>
+        <div class="component-variant">
+          <h3>Disabled Counter</h3>
+          <react-counter disabled></react-counter>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Add event listeners for interactive demos
+      document.querySelectorAll('react-button').forEach((button) => {
+        button.addEventListener('click', (e) => {
+          console.log('Button clicked:', e.target.textContent);
+        });
+      });
+
+      document.querySelectorAll('react-input').forEach((input) => {
+        input.addEventListener('change', (e) => {
+          console.log('Input changed:', e.target.value);
+        });
+      });
+
+      document.querySelectorAll('react-counter').forEach((counter) => {
+        counter.addEventListener('change', (e) => {
+          console.log('Counter value:', e.target.value);
+        });
+      });
+    </script>
+  </body>
+</html>
