@@ -150,6 +150,21 @@
       </div>
     </div>
 
+    <!-- Page Preview Component Demo -->
+    <div class="demo-section">
+      <h2>Page Preview Component</h2>
+      <div class="component-grid">
+        <div class="component-variant">
+          <h3>Basic Page Preview</h3>
+          <react-page-preview
+            workflow-name="sample-workflow"
+            token="sample-token"
+          >
+          </react-page-preview>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Add event listeners for interactive demos
       document.querySelectorAll('react-button').forEach((button) => {
@@ -167,6 +182,13 @@
       document.querySelectorAll('react-counter').forEach((counter) => {
         counter.addEventListener('change', (e) => {
           console.log('Counter value:', e.target.value);
+        });
+      });
+
+      document.querySelectorAll('react-page-preview').forEach((pagePreview) => {
+        pagePreview.addEventListener('notification', (e) => {
+          console.log('Page Preview Notification:', e.detail);
+          alert(`${e.detail.type.toUpperCase()}: ${e.detail.message}`);
         });
       });
     </script>

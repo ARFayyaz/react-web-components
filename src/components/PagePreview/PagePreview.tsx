@@ -158,7 +158,9 @@ export function PagePreview({
 
   return (
     <div className='space-y-6'>
-      <h1>This is the Web Component for Page Preview</h1>
+      <h1 className='text-2xl font-bold text-center text-red-500'>
+        This is the Web Component for Page Preview
+      </h1>
       {/* Form Modal */}
       {activeForm && (
         <FormModal
