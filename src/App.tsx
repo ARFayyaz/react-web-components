@@ -1,14 +1,14 @@
-import "./App.css";
-import { PagePreview } from "./components/PagePreview/PagePreview";
+import './App.css';
+import { PagePreview } from './components/PagePreview/PagePreview';
 
 function App() {
   // Sample data for testing the PagePreview component
-  const testWorkflowName = "av_openldap_create_user";
-  const testToken = "testToken";
+  const testWorkflowName = 'sample-workflow';
+  const testToken = 'your-token-here';
 
   const handleShowNotification = (
     message: string,
-    type: "success" | "error"
+    type: 'success' | 'error'
   ) => {
     console.log(`${type.toUpperCase()}: ${message}`);
     // You can later replace this with a proper notification system
