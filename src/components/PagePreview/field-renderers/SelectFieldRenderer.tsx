@@ -1,4 +1,4 @@
-import type { FormField } from '../lib/types';
+import type { FormField } from "../lib/types";
 
 interface SelectFieldRendererProps {
   field: FormField;
@@ -14,13 +14,13 @@ export function SelectFieldRenderer({
 }: SelectFieldRendererProps) {
   return (
     <select
-      value={value || ''}
+      value={value || ""}
       onChange={(e) => onChange(e.target.value)}
       required={field.required}
-      className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary'
+      className='mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-primary focus:ring-primary'
       {...rest}
     >
-      <option value=''>{field.placeholder || 'Select an option'}</option>
+      <option value=''>{field.placeholder || "Select an option"}</option>
       {field.options?.map((option, index) => (
         <option key={index} value={option.value}>
           {option.label}

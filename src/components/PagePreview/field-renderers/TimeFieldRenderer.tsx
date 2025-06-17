@@ -1,4 +1,4 @@
-import type { FormField } from '../lib/types';
+import type { FormField } from "../lib/types";
 
 interface TimeFieldRendererProps {
   field: FormField;
@@ -15,10 +15,10 @@ export function TimeFieldRenderer({
   return (
     <input
       type='time'
-      value={value || ''}
+      value={value || ""}
       onChange={(e) => onChange(e.target.value)}
       required={field.required}
-      className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary'
+      className='mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-primary focus:ring-primary'
       {...rest}
     />
   );

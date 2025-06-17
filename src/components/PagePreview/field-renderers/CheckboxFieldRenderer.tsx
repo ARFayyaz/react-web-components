@@ -1,4 +1,4 @@
-import type { FormField } from '../lib/types';
+import type { FormField } from "../lib/types";
 
 interface CheckboxFieldRendererProps {
   field: FormField;
@@ -20,7 +20,7 @@ export function CheckboxFieldRenderer({
           checked={value || false}
           onChange={(e) => onChange(e.target.checked)}
           required={field.required}
-          className='rounded border-gray-300 text-primary focus:ring-primary'
+          className='rounded border border-gray-300 text-primary focus:ring-primary'
           {...rest}
         />
         <span className='ml-2 text-sm text-gray-600'>{field.placeholder}</span>

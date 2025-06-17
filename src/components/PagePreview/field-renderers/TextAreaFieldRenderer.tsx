@@ -1,4 +1,4 @@
-import type { FormField } from '../lib/types';
+import type { FormField } from "../lib/types";
 
 interface TextAreaFieldRendererProps {
   field: FormField;
@@ -14,12 +14,12 @@ export function TextAreaFieldRenderer({
 }: TextAreaFieldRendererProps) {
   return (
     <textarea
-      value={value || ''}
+      value={value || ""}
       onChange={(e) => onChange(e.target.value)}
       placeholder={field.placeholder}
       required={field.required}
       rows={field.rows || 3}
-      className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary'
+      className='mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-primary focus:ring-primary'
       {...rest}
     />
   );

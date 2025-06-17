@@ -1,6 +1,6 @@
-import { FormPreview } from './FormPreview';
-import { mapGridDataToFormValues } from './lib/parameterMapping';
-import type { FormDefinition, ValidationError } from './lib/types';
+import { FormPreview } from "./FormPreview";
+import { mapGridDataToFormValues } from "./lib/parameterMapping";
+import type { FormDefinition, ValidationError } from "./lib/types";
 
 interface FormModalProps {
   action?: string;
@@ -37,7 +37,7 @@ export function FormModal({
         <div className='p-6 flex-1 overflow-y-auto'>
           <button
             onClick={onClose}
-            className='absolute right-4 top-4 text-white/70 hover:text-white'
+            className='absolute right-8 top-8 bg-primary text-white hover:text-white'
             aria-label='Close'
           >
             X

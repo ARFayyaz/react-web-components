@@ -1,12 +1,12 @@
 // This function injects the main CSS (including TailwindCSS) into Shadow DOM
 export function injectStyles(shadowRoot: ShadowRoot) {
-  const linkElement = document.createElement('link');
-  linkElement.rel = 'stylesheet';
-  linkElement.href = '/src/index.css';
+  const linkElement = document.createElement("link");
+  linkElement.rel = "stylesheet";
+  linkElement.href = "/src/index.css";
   shadowRoot.appendChild(linkElement);
 
   // Alternative: inline styles injection
-  const styleElement = document.createElement('style');
+  const styleElement = document.createElement("style");
   styleElement.textContent = `
     /* Basic TailwindCSS utilities for web components */
     
@@ -88,6 +88,7 @@ export function injectStyles(shadowRoot: ShadowRoot) {
     .font-bold { font-weight: 700; }
     .font-medium { font-weight: 500; }
     .text-center { text-align: center; }
+    .text-left { text-align: left; }
     
     /* Shadows & Effects */
     .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }

@@ -1,4 +1,4 @@
-import type { FormField } from '../lib/types';
+import type { FormField } from "../lib/types";
 
 interface NumberFieldRendererProps {
   field: FormField;
@@ -15,13 +15,13 @@ export function NumberFieldRenderer({
   return (
     <input
       type={field.type}
-      value={value || ''}
+      value={value || ""}
       onChange={(e) => onChange(e.target.value ? Number(e.target.value) : null)}
       min={field.minValue ?? undefined}
       max={field.maxValue ?? undefined}
       placeholder={field.placeholder}
       required={field.required}
-      className='mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary'
+      className='mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-primary focus:ring-primary'
       {...rest}
     />
   );

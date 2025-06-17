@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import type { FormField } from '../lib/types';
+import { useState } from "react";
+import type { FormField } from "../lib/types";
 
 interface PasswordFieldRendererProps {
   field: FormField;
@@ -18,13 +18,13 @@ export function PasswordFieldRenderer({
   return (
     <div className='mt-1 relative'>
       <input
-        type={showPassword ? 'text' : 'password'}
-        value={value || ''}
+        type={showPassword ? "text" : "password"}
+        value={value || ""}
         onChange={(e) => onChange(e.target.value)}
         placeholder={field.placeholder}
         pattern={field.regexPattern || undefined}
         required={field.required}
-        className='block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary pr-10'
+        className='p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-primary focus:ring-primary pr-10'
         {...rest}
       />
       <button

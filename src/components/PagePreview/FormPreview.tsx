@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import type { FormDefinition, ValidationError } from './lib/types';
-import { validateFormData } from './lib/validation';
-import { executeGraphWorkflow } from './lib/workflowExecution';
-import { PreviewField } from './PreviewField';
+import React, { useEffect, useMemo, useState } from "react";
+import type { FormDefinition, ValidationError } from "./lib/types";
+import { validateFormData } from "./lib/validation";
+import { executeGraphWorkflow } from "./lib/workflowExecution";
+import { PreviewField } from "./PreviewField";
 
 interface FormPreviewProps {
   form: FormDefinition;
@@ -12,7 +12,7 @@ interface FormPreviewProps {
   crudServiceUrl?: string;
   token?: string;
   apiKey?: string;
-  handleShowNotification?: (message: string, type: 'success' | 'error') => void;
+  handleShowNotification?: (message: string, type: "success" | "error") => void;
 }
 
 export function FormPreview({
@@ -23,7 +23,7 @@ export function FormPreview({
   crudServiceUrl,
   token,
   apiKey,
-  handleShowNotification = (message: string, type: 'success' | 'error') => {},
+  handleShowNotification = (message: string, type: "success" | "error") => {},
 }: FormPreviewProps) {
   // Memoize the default initialValues to ensure a stable reference
   const memoizedInitialValues = useMemo(() => initialValues, [form]);
@@ -51,7 +51,7 @@ export function FormPreview({
 
     // Return early if the form is in view-only mode
     if (form.isViewOnly) {
-      handleShowNotification('Form is in view-only mode', 'error');
+      handleShowNotification("Form is in view-only mode", "error");
       return;
     }
 
@@ -75,7 +75,7 @@ export function FormPreview({
           token,
           apiKey
         );
-        handleShowNotification('Form submitted successfully', 'success');
+        handleShowNotification("Form submitted successfully", "success");
       }
 
       // Reset form after successful submission
@@ -83,14 +83,14 @@ export function FormPreview({
       setErrors([]);
     } catch (error) {
       const message =
-        error instanceof Error ? error.message : 'Form submission failed';
+        error instanceof Error ? error.message : "Form submission failed";
       setErrors([
         {
-          field: '_form',
+          field: "_form",
           message,
         },
       ]);
-      handleShowNotification(message, 'error');
+      handleShowNotification(message, "error");
       onError?.(errors);
     } finally {
       setIsSubmitting(false);
@@ -98,7 +98,7 @@ export function FormPreview({
   };
 
   return (
-    <div className='mt-6 bg-white rounded-lg shadow-sm border border-gray-200 p-6'>
+    <div className='bg-white rounded-lg shadow-sm border border-gray-200 p-6'>
       <div className='mb-6'>
         <h2 className='text-2xl font-bold text-gray-900'>{form.title}</h2>
         {form.description && (
@@ -106,9 +106,9 @@ export function FormPreview({
         )}
       </div>
 
-      {errors.some((e) => e.field === '_form') && (
+      {errors.some((e) => e.field === "_form") && (
         <div className='mb-4 p-3 bg-red-50 border border-red-200 rounded text-red-600'>
-          {errors.find((e) => e.field === '_form')?.message}
+          {errors.find((e) => e.field === "_form")?.message}
         </div>
       )}
 
@@ -133,7 +133,7 @@ export function FormPreview({
               disabled={isSubmitting}
               className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-primary-400'
             >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         )}

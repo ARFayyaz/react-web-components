@@ -1,4 +1,4 @@
-import type { FormField } from '../lib/types';
+import type { FormField } from "../lib/types";
 
 interface EmailFieldRendererProps {
   field: FormField;
@@ -18,14 +18,14 @@ export function EmailFieldRenderer({
     <div>
       <input
         type='email'
-        value={value || ''}
+        value={value || ""}
         onChange={(e) => onChange(e.target.value)}
-        placeholder={field.placeholder || 'Enter email address'}
+        placeholder={field.placeholder || "Enter email address"}
         required={field.required}
-        className={`mt-1 block w-full rounded-md shadow-sm focus:ring-primary focus:border-primary ${
+        className={`mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-primary focus:border-primary ${
           error
-            ? 'border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500'
-            : 'border-gray-300'
+            ? "border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500"
+            : "border-gray-300"
         }`}
         {...rest}
       />

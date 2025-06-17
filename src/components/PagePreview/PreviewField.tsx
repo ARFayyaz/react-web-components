@@ -1,18 +1,18 @@
-import type { FormField } from './lib/types';
-import { TextFieldRenderer } from './field-renderers/TextFieldRenderer';
-import { EmailFieldRenderer } from './field-renderers/EmailFieldRenderer';
-import { PhoneFieldRenderer } from './field-renderers/PhoneFieldRenderer';
-import { PasswordFieldRenderer } from './field-renderers/PasswordFieldRenderer';
-import { RangeFieldRenderer } from './field-renderers/RangeFieldRenderer';
-import { AutocompleteFieldRenderer } from './field-renderers/AutocompleteFieldRenderer';
-import { NumberFieldRenderer } from './field-renderers/NumberFieldRenderer';
-import { SelectFieldRenderer } from './field-renderers/SelectFieldRenderer';
-import { TextAreaFieldRenderer } from './field-renderers/TextAreaFieldRenderer';
-import { CheckboxFieldRenderer } from './field-renderers/CheckboxFieldRenderer';
-import { DateFieldRenderer } from './field-renderers/DateFieldRenderer';
-import { TimeFieldRenderer } from './field-renderers/TimeFieldRenderer';
-import { FileFieldRenderer } from './field-renderers/FileFieldRenderer';
-import { useFieldDependencies } from './hooks/useFieldDependencies';
+import type { FormField } from "./lib/types";
+import { TextFieldRenderer } from "./field-renderers/TextFieldRenderer";
+import { EmailFieldRenderer } from "./field-renderers/EmailFieldRenderer";
+import { PhoneFieldRenderer } from "./field-renderers/PhoneFieldRenderer";
+import { PasswordFieldRenderer } from "./field-renderers/PasswordFieldRenderer";
+import { RangeFieldRenderer } from "./field-renderers/RangeFieldRenderer";
+import { AutocompleteFieldRenderer } from "./field-renderers/AutocompleteFieldRenderer";
+import { NumberFieldRenderer } from "./field-renderers/NumberFieldRenderer";
+import { SelectFieldRenderer } from "./field-renderers/SelectFieldRenderer";
+import { TextAreaFieldRenderer } from "./field-renderers/TextAreaFieldRenderer";
+import { CheckboxFieldRenderer } from "./field-renderers/CheckboxFieldRenderer";
+import { DateFieldRenderer } from "./field-renderers/DateFieldRenderer";
+import { TimeFieldRenderer } from "./field-renderers/TimeFieldRenderer";
+import { FileFieldRenderer } from "./field-renderers/FileFieldRenderer";
+import { useFieldDependencies } from "./hooks/useFieldDependencies";
 
 interface PreviewFieldProps {
   field: FormField;
@@ -45,31 +45,31 @@ export function PreviewField({
     };
 
     switch (field.type) {
-      case 'text':
+      case "text":
         return <TextFieldRenderer {...commonProps} />;
-      case 'password':
+      case "password":
         return <PasswordFieldRenderer {...commonProps} />;
-      case 'email':
+      case "email":
         return <EmailFieldRenderer {...commonProps} error={error} />;
-      case 'phone':
+      case "phone":
         return <PhoneFieldRenderer {...commonProps} error={error} />;
-      case 'textarea':
+      case "textarea":
         return <TextAreaFieldRenderer {...commonProps} />;
-      case 'number':
+      case "number":
         return <NumberFieldRenderer {...commonProps} />;
-      case 'range':
+      case "range":
         return <RangeFieldRenderer {...commonProps} />;
-      case 'select':
+      case "select":
         return <SelectFieldRenderer {...commonProps} />;
-      case 'autocomplete':
+      case "autocomplete":
         return <AutocompleteFieldRenderer {...commonProps} />;
-      case 'checkbox':
+      case "checkbox":
         return <CheckboxFieldRenderer {...commonProps} />;
-      case 'date':
+      case "date":
         return <DateFieldRenderer {...commonProps} />;
-      case 'time':
+      case "time":
         return <TimeFieldRenderer {...commonProps} />;
-      case 'file':
+      case "file":
         return <FileFieldRenderer {...commonProps} />;
 
       default:
@@ -79,13 +79,13 @@ export function PreviewField({
 
   return (
     <div>
-      <label className='block text-sm font-medium text-white'>
+      <label className='block text-sm font-medium text-left'>
         {field.label}
         {field.required && <span className='text-red-500 ml-1'>*</span>}
         {error && <span className='text-red-500 text-sm ml-2'>{error}</span>}
         {!isValid && dependencyErrors.length > 0 && (
           <span className='text-amber-500 text-sm ml-2'>
-            {dependencyErrors.join(', ')}
+            {dependencyErrors.join(", ")}
           </span>
         )}
       </label>
