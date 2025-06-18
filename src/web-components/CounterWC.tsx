@@ -1,5 +1,6 @@
-import { createRoot } from 'react-dom/client';
-import { Counter } from '../components/Counter';
+import { createRoot } from "react-dom/client";
+import { Counter } from "../components/Counter";
+import { injectStyles } from "../utils/shadowDomStyles";
 
 class CounterWC extends HTMLElement {
   private root: ShadowRoot;
@@ -8,12 +9,15 @@ class CounterWC extends HTMLElement {
   constructor() {
     super();
     // Create a shadow root
-    this.root = this.attachShadow({ mode: 'open' });
+    this.root = this.attachShadow({ mode: "open" });
     // Create a container for React
-    const container = document.createElement('div');
+    const container = document.createElement("div");
     this.root.appendChild(container);
     // Create React root
     this.reactRoot = createRoot(container);
+
+    // Inject styles into shadow DOM
+    injectStyles(this.root);
   }
 
   // Called when the element is added to the DOM
@@ -28,7 +32,7 @@ class CounterWC extends HTMLElement {
 
   // Called when observed attributes change
   static get observedAttributes() {
-    return ['initial-count', 'label'];
+    return ["initial-count", "label"];
   }
 
   attributeChangedCallback() {
@@ -37,10 +41,10 @@ class CounterWC extends HTMLElement {
 
   private render() {
     const initialCount = parseInt(
-      this.getAttribute('initial-count') || '0',
+      this.getAttribute("initial-count") || "0",
       10
     );
-    const label = this.getAttribute('label') || 'Counter';
+    const label = this.getAttribute("label") || "Counter";
 
     this.reactRoot.render(
       <Counter initialCount={initialCount} label={label} />
@@ -49,4 +53,4 @@ class CounterWC extends HTMLElement {
 }
 
 // Register the custom element
-customElements.define('react-counter', CounterWC);
+customElements.define("react-counter", CounterWC);

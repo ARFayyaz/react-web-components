@@ -79,7 +79,7 @@ export function PreviewField({
 
   return (
     <div>
-      <label className='block text-sm font-medium text-left'>
+      <label className='block text-sm font-medium text-left text-gray-600'>
         {field.label}
         {field.required && <span className='text-red-500 ml-1'>*</span>}
         {error && <span className='text-red-500 text-sm ml-2'>{error}</span>}

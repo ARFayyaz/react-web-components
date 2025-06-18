@@ -1,13 +1,14 @@
-import { createRoot } from 'react-dom/client';
-import { Button } from '../components/Button';
+import { createRoot } from "react-dom/client";
+import { Button } from "../components/Button";
+import { injectStyles } from "../utils/shadowDomStyles";
 
 function parseStyleString(
   styleString: string | null
 ): React.CSSProperties | undefined {
   if (!styleString) return undefined;
   const styleObj: Record<string, string> = {};
-  styleString.split(';').forEach((rule) => {
-    const [key, value] = rule.split(':');
+  styleString.split(";").forEach((rule) => {
+    const [key, value] = rule.split(":");
     if (key && value) {
       styleObj[key.trim().replace(/-([a-z])/g, (_, c) => c.toUpperCase())] =
         value.trim();
@@ -22,14 +23,17 @@ class ButtonWC extends HTMLElement {
 
   constructor() {
     super();
-    this.root = this.attachShadow({ mode: 'open' });
-    const container = document.createElement('div');
+    this.root = this.attachShadow({ mode: "open" });
+    const container = document.createElement("div");
     this.root.appendChild(container);
     this.reactRoot = createRoot(container);
+
+    // Inject styles into shadow DOM
+    injectStyles(this.root);
   }
 
   static get observedAttributes() {
-    return ['label', 'color', 'style'];
+    return ["label", "color", "style"];
   }
 
   connectedCallback() {
@@ -45,12 +49,12 @@ class ButtonWC extends HTMLElement {
   }
 
   private render() {
-    const label = this.getAttribute('label') || 'Click Me';
-    const color = this.getAttribute('color') || '#007bff';
-    const styleAttr = this.getAttribute('style');
+    const label = this.getAttribute("label") || "Click Me";
+    const color = this.getAttribute("color") || "#007bff";
+    const styleAttr = this.getAttribute("style");
     const style = parseStyleString(styleAttr);
     this.reactRoot.render(<Button label={label} color={color} style={style} />);
   }
 }
 
-customElements.define('react-button', ButtonWC);
+customElements.define("react-button", ButtonWC);
